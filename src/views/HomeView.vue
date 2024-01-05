@@ -30,7 +30,7 @@
                                 <span class="badge bg-design rounded-pill ms-auto">14</span>
                             </div>
 
-                            <img src="../public/images/topics/undraw_Remote_design_team_re_urdx.png" class="custom-block-image img-fluid" alt="">
+                            <img src="/public/images/topics/undraw_Remote_design_team_re_urdx.png" class="custom-block-image img-fluid" alt="">
                         </a>
                     </div>
                 </div>
@@ -38,7 +38,7 @@
                 <div class="col-lg-6 col-12">
                     <div class="custom-block custom-block-overlay">
                         <div class="d-flex flex-column h-100">
-                            <img src="../public/images/coding_feature.jpg" class="custom-block-image img-fluid" alt="">
+                            <img src="/public/images/coding_feature.jpg" class="custom-block-image img-fluid" alt="">
 
                             <div class="custom-block-overlay-text d-flex">
                                 <div>
