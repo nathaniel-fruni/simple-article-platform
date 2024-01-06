@@ -62,8 +62,14 @@
             </div>
         </div>
     </section>
+
+    <BrowseTopicsView />
 </template>
 
 <script>
+import BrowseTopicsView from "@/views/BrowseTopicsView.vue";
 
+export default {
+    components: {BrowseTopicsView}
+}
 </script>

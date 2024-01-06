@@ -1,0 +1,130 @@
+{
+  "topics": [
+    {
+      "id": 1,
+      "name": "Design",
+      "slug": "design",
+      "articles": [
+        {
+          "id": 1,
+          "name": "Web Design",
+          "slug": "web-design",
+          "description": "Immerse yourself in the art and science of web design",
+          "image": "undraw_Remote_design_team_re_urdx.png"
+        },
+        {
+          "id": 2,
+          "name": "Graphic",
+          "slug": "graphic",
+          "description": "Immerse yourself in the art and science of web design",
+          "image": "undraw_Remote_design_team_re_urdx.png"
+        },
+        {
+          "id": 3,
+          "name": "Logo Design",
+          "slug": "logo-design",
+          "description": "Immerse yourself in the art and science of web design",
+          "image": "undraw_Remote_design_team_re_urdx.png"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Marketing",
+      "slug": "marketing",
+      "articles": [
+        {
+          "id": 4,
+          "name": "Advertising",
+          "slug": "advertising",
+          "description": "Immerse yourself in the art and science of web design",
+          "image": "undraw_Remote_design_team_re_urdx.png"
+        },
+        {
+          "id": 5,
+          "name": "Video Content",
+          "slug": "video-content",
+          "description": "Immerse yourself in the art and science of web design",
+          "image": "undraw_Remote_design_team_re_urdx.png"
+        },
+        {
+          "id": 6,
+          "name": "Social Media",
+          "slug": "social-media",
+          "description": "Immerse yourself in the art and science of web design",
+          "image": "undraw_Remote_design_team_re_urdx.png"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Finance",
+      "slug": "finance-1",
+      "articles": [
+        {
+          "id": 7,
+          "name": "Investment",
+          "slug": "investment",
+          "description": "Immerse yourself in the art and science of web design",
+          "image": "undraw_Remote_design_team_re_urdx.png"
+        },
+        {
+          "id": 8,
+          "name": "Finance",
+          "slug": "finance-2",
+          "description": "Immerse yourself in the art and science of web design",
+          "image": "undraw_Remote_design_team_re_urdx.png"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Music",
+      "slug": "music",
+      "articles": [
+        {
+          "id": 9,
+          "name": "Composing Song",
+          "slug": "composing-song",
+          "description": "Immerse yourself in the art and science of web design",
+          "image": "undraw_Remote_design_team_re_urdx.png"
+        },
+        {
+          "id": 10,
+          "name": "Online Music",
+          "slug": "online-music",
+          "description": "Immerse yourself in the art and science of web design",
+          "image": "undraw_Remote_design_team_re_urdx.png"
+        },
+        {
+          "id": 11,
+          "name": "Podcast",
+          "slug": "podcast",
+          "description": "Immerse yourself in the art and science of web design",
+          "image": "undraw_Remote_design_team_re_urdx.png"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Code",
+      "slug": "code",
+      "articles": [
+        {
+          "id": 12,
+          "name": "Software Development Practises",
+          "slug": "software-development-practises",
+          "description": "Immerse yourself in the art and science of web design",
+          "image": "undraw_Remote_design_team_re_urdx.png"
+        },
+        {
+          "id": 13,
+          "name": "Programming Languages",
+          "slug": "programmig-language",
+          "description": "Immerse yourself in the art and science of web design",
+          "image": "undraw_Remote_design_team_re_urdx.png"
+        }
+      ]
+    }
+  ]
+}
