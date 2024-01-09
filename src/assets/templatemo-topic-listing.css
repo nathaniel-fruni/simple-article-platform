@@ -31,7 +31,7 @@ https://templatemo.com/tm-590-topic-listing
   --h5-font-size:                 24px;
   --h6-font-size:                 22px;
   --p-font-size:                  20px;
-  --menu-font-size:               14px;
+  --menu-font-size:               16px;
   --btn-font-size:                18px;
   --copyright-font-size:          16px;
 
@@ -49,7 +49,6 @@ body {
   background-color: var(--white-color);
   font-family: var(--body-font-family); 
 }
-
 
 /*---------------------------------------
   TYPOGRAPHY               
@@ -164,6 +163,19 @@ strong {
 .tab-content {
   background-color: var(--white-color);
   border-radius: var(--border-radius-medium);
+}
+
+#nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right:0;
+  margin-top: 0;
+  padding: 15px;
+  color: white;
+  display: flex;
+  align-items: center;
+  z-index: 1000;
 }
 
 .nav-tabs {
@@ -310,7 +322,7 @@ strong {
   padding: 10px;
 }
 
-.navbar-nav .nav-link {
+.nav-link {
   display: inline-block;
   color: var(--white-color);
   font-family: var(--title-font-family); 
@@ -355,7 +367,7 @@ strong {
 
 .navbar .dropdown-item {
   display: inline-block;
-  color: var(--p-bg-color);
+  color: var(--secondary-color);
   font-family: var(--title-font-family); 
   font-size: var(--menu-font-size);
   font-weight: var(--font-weight-medium);
@@ -726,7 +738,7 @@ blockquote {
   TIMELINE              
 -----------------------------------------*/
 .timeline-section {
-  background-image: url('../images/colleagues-working-cozy-office-medium-shot.jpg');
+  background-image: url('public/images/colleagues-working-cozy-office-medium-shot.jpg');
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
