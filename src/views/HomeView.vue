@@ -26,8 +26,6 @@
 
                                     <p class="mb-0">Explore the art and science of web design, where every pixel has a purpose and every color tells a story.</p>
                                 </div>
-
-                                <span class="badge bg-design rounded-pill ms-auto">14</span>
                             </div>
 
                             <img src="/public/images/topics/undraw_Remote_design_team_re_urdx.png" class="custom-block-image img-fluid" alt="">
@@ -50,8 +48,6 @@
                                         <a href="topics-detail.html" class="btn custom-btn mt-2 mt-lg-3">Learn More</a>
                                     </div>
                                 </div>
-
-                                <span class="badge bg-finance rounded-pill ms-auto">25</span>
                             </div>
 
                             <div class="section-overlay"></div>
@@ -63,13 +59,126 @@
         </div>
     </section>
 
-    <BrowseTopicsView />
+    <section class="explore-section section-padding" id="section_2">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-12 text-center">
+                    <h2 class="mb-4">Browse Topics</h2>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="container-fluid">
+            <div class="row">
+                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                    <li v-for="topic in topics" :key="topic.id" class="nav-item" role="presentation">
+                        <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#design-tab-pane" type="button" role="tab" aria-controls="design-tab-pane" aria-selected="true">{{ topic.name }}</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+
+                <div class="col-12">
+                    <div class="tab-content" id="myTabContent">
+
+                        <div class="tab-pane fade show active" id="design-tab-pane" role="tabpanel" aria-labelledby="design-tab" tabindex="0">
+                            <div class="row pb-2">
+                                <div class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-0">
+                                    <div class="custom-block bg-white shadow-lg">
+                                        <a href="topics-detail.html">
+                                            <div class="d-flex">
+                                                <div>
+                                                    <h5 class="mb-2">Web Design</h5>
+
+                                                    <p class="mb-0">Immerse yourself in the art and science of web design</p>
+                                                </div>
+                                            </div>
+                                            <img src="/images/topics/undraw_Remote_design_team_re_urdx.png" class="custom-block-image img-fluid" alt="">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="timeline-section section-padding" id="section_3">
+        <div class="section-overlay"></div>
+
+        <div class="container">
+            <div class="row">
+
+                <div class="col-12 text-center">
+                    <h2 class="text-white mb-4">How does it work?</h2>
+                </div>
+
+                <div class="col-lg-10 col-12 mx-auto">
+                    <div class="timeline-container">
+                        <ul class="vertical-scrollable-timeline" id="vertical-scrollable-timeline">
+                            <div class="list-progress">
+                                <div class="inner"></div>
+                            </div>
+
+                            <li>
+                                <h4 class="text-white mb-3">Search your favourite topic</h4>
+
+                                <p class="text-white">Begin your journey by searching for your favorite topics. Enter the realm of endless possibilities as you explore and discover the content that sparks your curiosity.</p>
+
+                                <div class="icon-holder">
+                                    <i class="bi-search"></i>
+                                </div>
+                            </li>
+
+                            <li>
+                                <h4 class="text-white mb-3">Find an article</h4>
+
+                                <p class="text-white">Navigate through a curated collection and find the perfect article that resonates with your interests. From informative insights to captivating stories, there's something for every curious mind.</p>
+
+                                <div class="icon-holder">
+                                    <i class="bi-bookmark"></i>
+                                </div>
+                            </li>
+
+                            <li>
+                                <h4 class="text-white mb-3">Read &amp; Enjoy</h4>
+
+                                <p class="text-white">Dive into the world of knowledge and enjoyment. Whether you're seeking information or pure entertainment, reading has never been more delightful. Sit back, relax, and let the adventure unfold.</p>
+
+                                <div class="icon-holder">
+                                    <i class="bi-book"></i>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <FaQ />
+    <ContactInfo/>
+    <TheFooter />
 </template>
 
 <script>
-import BrowseTopicsView from "@/views/BrowseTopicsView.vue";
+import TheFooter from "@/components/TheFooter.vue";
+import dataTopics from "@/topics.json";
+import ContactInfo from "@/components/ContactInfo.vue";
+import FaQ from "@/components/FaQ.vue";
 
 export default {
-    components: {BrowseTopicsView}
+    data() {
+        return {
+            topics: dataTopics.topics,
+        }
+    },
+    components: {FaQ, ContactInfo, TheFooter}
 }
 </script>

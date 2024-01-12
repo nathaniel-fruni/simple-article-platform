@@ -1,9 +1,6 @@
 <template>
 
-  <header>
     <TheNavigation />
-  </header>
-
     <RouterView :key="$route.fullPath"/>
 
 </template>

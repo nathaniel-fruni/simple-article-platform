@@ -335,8 +335,7 @@ strong {
   padding-bottom: 15px;
 }
 
-.navbar-nav .nav-link.active, 
-.navbar-nav .nav-link:hover {
+.nav-link:hover {
   color: var(--primary-color);
 }
 

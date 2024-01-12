@@ -9,23 +9,23 @@
 
             <div>
                 <ul v-if="showMenu" class="main-menu d-inline-flex list-unstyled my-auto" :class="{ responsive: isResponsive }">
-                    <li class="me-4">
+                    <li class="nav-item me-4">
                         <a class="nav-link" href="#section_1">Home</a>
                     </li>
 
-                    <li class="me-4">
+                    <li class="nav-item me-4">
                         <a class="nav-link" href="#section_2">Browse Topics</a>
                     </li>
 
-                    <li class="me-4">
+                    <li class="nav-item me-4">
                         <a class="nav-link" href="#section_3">How it works</a>
                     </li>
 
-                    <li class="me-4">
+                    <li class="nav-item me-4">
                         <a class="nav-link" href="#section_4">FAQs</a>
                     </li>
 
-                    <li class="me-4">
+                    <li class="nav-item me-4">
                         <a class="nav-link" href="#section_5">Contact</a>
                     </li>
 
@@ -90,7 +90,7 @@ nav {
 }
 
 @media screen and (max-width: 1000px) {
-    #nav{
+    nav{
         background-color: #80d0c7;
     }
     .main-menu{
