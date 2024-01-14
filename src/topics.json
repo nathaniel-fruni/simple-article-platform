@@ -16,15 +16,15 @@
           "id": 2,
           "name": "Graphic",
           "slug": "graphic",
-          "description": "Immerse yourself in the art and science of web design",
-          "image": "undraw_Remote_design_team_re_urdx.png"
+          "description": "Discover the power of visual storytelling through graphic design",
+          "image": "undraw_Redesign_feedback_re_jvm0.png"
         },
         {
           "id": 3,
           "name": "Logo Design",
           "slug": "logo-design",
-          "description": "Immerse yourself in the art and science of web design",
-          "image": "undraw_Remote_design_team_re_urdx.png"
+          "description": "Explore the world of logo design, where creativity meets brand identity",
+          "image": "colleagues-working-cozy-office-medium-shot.png"
         }
       ]
     },
@@ -37,22 +37,22 @@
           "id": 4,
           "name": "Advertising",
           "slug": "advertising",
-          "description": "Immerse yourself in the art and science of web design",
-          "image": "undraw_Remote_design_team_re_urdx.png"
+          "description": "Delve into the world of advertising",
+          "image": "undraw_online_ad_re_ol62.png"
         },
         {
           "id": 5,
           "name": "Video Content",
           "slug": "video-content",
-          "description": "Immerse yourself in the art and science of web design",
-          "image": "undraw_Remote_design_team_re_urdx.png"
+          "description": "Embark on a visual journey as you explore the art of video content creation",
+          "image": "undraw_Group_video_re_btu7.png"
         },
         {
           "id": 6,
           "name": "Social Media",
           "slug": "social-media",
-          "description": "Immerse yourself in the art and science of web design",
-          "image": "undraw_Remote_design_team_re_urdx.png"
+          "description": "Navigate the ever-evolving landscape of social media",
+          "image": "undraw_viral_tweet_gndb.png"
         }
       ]
     },
@@ -65,15 +65,15 @@
           "id": 7,
           "name": "Investment",
           "slug": "investment",
-          "description": "Immerse yourself in the art and science of web design",
-          "image": "undraw_Remote_design_team_re_urdx.png"
+          "description": "Unlock the secrets of successful investments",
+          "image": "undraw_Finance_re_gnv2.png"
         },
         {
           "id": 8,
           "name": "Finance",
           "slug": "finance-2",
-          "description": "Immerse yourself in the art and science of web design",
-          "image": "undraw_Remote_design_team_re_urdx.png"
+          "description": "Master the art of financial wellness with practical tips and strategies",
+          "image": "finance.png"
         }
       ]
     },
@@ -86,22 +86,22 @@
           "id": 9,
           "name": "Composing Song",
           "slug": "composing-song",
-          "description": "Immerse yourself in the art and science of web design",
-          "image": "undraw_Remote_design_team_re_urdx.png"
+          "description": "Unleash your creativity and compose musical masterpieces",
+          "image": "undraw_Compose_music_re_wpiw.png"
         },
         {
           "id": 10,
           "name": "Online Music",
           "slug": "online-music",
-          "description": "Immerse yourself in the art and science of web design",
-          "image": "undraw_Remote_design_team_re_urdx.png"
+          "description": "Embark on a digital symphony with the vast world of online music",
+          "image": "undraw_happy_music_g6wc.png"
         },
         {
           "id": 11,
           "name": "Podcast",
           "slug": "podcast",
-          "description": "Immerse yourself in the art and science of web design",
-          "image": "undraw_Remote_design_team_re_urdx.png"
+          "description": "Create insightful conversations and captivating narratives in the realm of podcasts",
+          "image": "undraw_Podcast_audience_re_4i5q.png"
         }
       ]
     },
@@ -114,15 +114,15 @@
           "id": 12,
           "name": "Software Development Practises",
           "slug": "software-development-practises",
-          "description": "Immerse yourself in the art and science of web design",
-          "image": "undraw_Remote_design_team_re_urdx.png"
+          "description": "Uncover the methodologies and practices that drive efficient software development",
+          "image": "software_dev.jpg"
         },
         {
           "id": 13,
           "name": "Programming Languages",
           "slug": "programmig-language",
-          "description": "Immerse yourself in the art and science of web design",
-          "image": "undraw_Remote_design_team_re_urdx.png"
+          "description": "Dive into the diverse world of programming languages",
+          "image": "programmer.jpg"
         }
       ]
     }

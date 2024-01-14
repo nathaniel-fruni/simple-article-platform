@@ -10,23 +10,23 @@
             <div>
                 <ul v-if="showMenu" class="main-menu d-inline-flex list-unstyled my-auto" :class="{ responsive: isResponsive }">
                     <li class="nav-item me-4">
-                        <a class="nav-link" href="#section_1">Home</a>
+                        <a class="nav-link" href="/">Home</a>
                     </li>
 
                     <li class="nav-item me-4">
-                        <a class="nav-link" href="#section_2">Browse Topics</a>
+                        <a class="nav-link" href="/#section_2">Browse Topics</a>
                     </li>
 
                     <li class="nav-item me-4">
-                        <a class="nav-link" href="#section_3">How it works</a>
+                        <a class="nav-link" href="/#section_3">How it works</a>
                     </li>
 
                     <li class="nav-item me-4">
-                        <a class="nav-link" href="#section_4">FAQs</a>
+                        <a class="nav-link" href="/#section_4">FAQs</a>
                     </li>
 
                     <li class="nav-item me-4">
-                        <a class="nav-link" href="#section_5">Contact</a>
+                        <a class="nav-link" href="/#section_5">Contact</a>
                     </li>
 
                     <li class="me-4"><router-link to="/articles" class="nav-link">Articles</router-link></li>
