@@ -16,11 +16,11 @@
 
                     <div class="row my-4">
                         <div class="col-lg-6 col-md-6 col-12">
-                            <img src="images/rear-view-young-college-student.jpg" class="topics-detail-block-image img-fluid">
+                            <img src="/public/images/rear-view-young-college-student.jpg" class="topics-detail-block-image img-fluid" alt="student">
                         </div>
 
                         <div class="col-lg-6 col-md-6 col-12 mt-4 mt-lg-0 mt-md-0">
-                            <img src="images/colleagues-working-cozy-office-medium-shot.jpg" class="topics-detail-block-image img-fluid">
+                            <img src="/public/images/colleagues-working-cozy-office-medium-shot.jpg" class="topics-detail-block-image img-fluid" alt="office">
                         </div>
                     </div>
 
@@ -37,7 +37,7 @@
             <div class="row justify-content-center">
 
                 <div class="col-lg-5 col-12">
-                    <img src="images/rear-view-young-college-student.jpg" class="newsletter-image img-fluid" alt="">
+                    <img src="/public/images/rear-view-young-college-student.jpg" class="newsletter-image img-fluid" alt="">
                 </div>
 
                 <div class="col-lg-5 col-12 subscribe-form-wrap d-flex justify-content-center align-items-center">

@@ -19,7 +19,7 @@
 
                 <div class="col-lg-4 col-12 mb-4 mb-lg-0">
                     <div class="custom-block bg-white shadow-lg">
-                        <a href="topics-detail.html">
+                        <a href="#section_2">
                             <div class="d-flex">
                                 <div>
                                     <h5 class="mb-2">Web Design</h5>
@@ -45,7 +45,7 @@
                                     <p class="text-white">Enter the realm where logic and language converge to build the backbone of the digital world. Explore the syntax and semantics that shape our digital landscape. From programming paradigms to the latest coding languages, this is the space where ideas are translated into functional reality, and the possibilities are as vast as lines of code themselves.</p>
 
                                     <div class="text-center">
-                                        <a href="topics-detail.html" class="btn custom-btn mt-2 mt-lg-3">Learn More</a>
+                                        <a href="#section_2" class="btn custom-btn mt-2 mt-lg-3">Learn More</a>
                                     </div>
                                 </div>
                             </div>
@@ -164,11 +164,9 @@
     </section>
     <FaQ />
     <ContactInfo/>
-    <TheFooter />
 </template>
 
 <script>
-import TheFooter from "@/components/TheFooter.vue";
 import dataTopics from "@/topics.json";
 import ContactInfo from "@/components/ContactInfo.vue";
 import FaQ from "@/components/FaQ.vue";
@@ -179,6 +177,6 @@ export default {
             topics: dataTopics.topics,
         }
     },
-    components: {FaQ, ContactInfo, TheFooter}
+    components: {FaQ, ContactInfo}
 }
 </script>
