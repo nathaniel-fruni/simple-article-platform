@@ -9,7 +9,7 @@
                 </div>
 
                 <div class="col-lg-8 col-12 mt-3 mx-auto">
-                    <div v-for="topic in topics" :key="topic.id">
+                    <div v-for="topic in filteredTopics" :key="topic.id">
                         <div v-for="article in topic.articles" :key="article.id">
                             <ArticleCard2 :article="article" />
                         </div>
@@ -60,16 +60,17 @@
     <ContactInfo />
 </template>
 <script>
-import dataTopics from "@/topics.json";
+import {useSelectedTopicStore} from "@/stores/SelectedTopicsStore";
 import PageHeaderInfo from '@/components/PageHeaderInfo.vue'
 import ArticleCard2 from "@/components/ArticleCard2.vue";
 import ContactInfo from "@/components/ContactInfo.vue";
 
 export default {
     components: {PageHeaderInfo, ContactInfo, ArticleCard2},
-    data() {
-        return {
-            topics: dataTopics.topics,
+    computed: {
+        filteredTopics() {
+            const topicStore = useSelectedTopicStore();
+            return topicStore.filteredTopics;
         }
     }
 }

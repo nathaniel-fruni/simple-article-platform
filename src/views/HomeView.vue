@@ -73,7 +73,7 @@
         <div class="container-fluid">
             <div class="row">
                 <ul class="nav nav-tabs" id="myTab" role="tablist">
-                    <li v-for="topic in topics" :key="topic.id" class="nav-item" role="presentation">
+                    <li v-for="topic in filteredTopics" :key="topic.id" class="nav-item" role="presentation">
                         <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#design-tab-pane" type="button" role="tab" aria-controls="design-tab-pane" aria-selected="true">{{ topic.name }}</button>
                     </li>
                 </ul>
@@ -167,16 +167,17 @@
 </template>
 
 <script>
-import dataTopics from "@/topics.json";
+import {useSelectedTopicStore} from "@/stores/SelectedTopicsStore";
 import ContactInfo from "@/components/ContactInfo.vue";
 import FaQ from "@/components/FaQ.vue";
 
 export default {
-    data() {
-        return {
-            topics: dataTopics.topics,
+    components: {FaQ, ContactInfo},
+    computed: {
+        filteredTopics() {
+            const topicStore = useSelectedTopicStore();
+            return topicStore.filteredTopics;
         }
-    },
-    components: {FaQ, ContactInfo}
+    }
 }
 </script>
