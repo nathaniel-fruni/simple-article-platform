@@ -56,3 +56,16 @@
         </div>
     </section>
 </template>
+
+<script>
+export default {
+    mounted() {
+        // Access the article slug in the mounted lifecycle hook
+        const articleSlug = this.$route.params.slug;
+        console.log("Article Slug:", articleSlug);
+
+        // Now you can use the article slug to fetch data or perform other actions
+        // based on the specific article.
+    }
+}
+</script>

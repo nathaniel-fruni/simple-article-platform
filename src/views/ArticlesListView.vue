@@ -2,16 +2,20 @@
     <PageHeaderInfo />
     <section class="section-padding">
         <div class="container">
+            <div class="mb-5">
+                <SelectedTopicBar />
+            </div>
+
             <div class="row">
 
                 <div class="col-lg-12 col-12 text-center">
-                    <h3 class="mb-4">Articles To Read</h3>
+                    <h2 class="mb-4">Articles To Read</h2>
                 </div>
 
                 <div class="col-lg-8 col-12 mt-3 mx-auto">
                     <div v-for="topic in filteredTopics" :key="topic.id">
                         <div v-for="article in topic.articles" :key="article.id">
-                            <ArticleCard2 :article="article" />
+                            <ArticleCard :article="article" />
                         </div>
                     </div>
                 </div>
@@ -61,16 +65,24 @@
 </template>
 <script>
 import {useSelectedTopicStore} from "@/stores/SelectedTopicsStore";
-import PageHeaderInfo from '@/components/PageHeaderInfo.vue'
-import ArticleCard2 from "@/components/ArticleCard2.vue";
+import SelectedTopicBar from "@/components/SelectTopicBar.vue";
+import PageHeaderInfo from "@/components/PageHeaderInfo.vue";
+import ArticleCard from "@/components/ArticleCard.vue";
 import ContactInfo from "@/components/ContactInfo.vue";
 
 export default {
-    components: {PageHeaderInfo, ContactInfo, ArticleCard2},
+    data () {
+        const topicStore = useSelectedTopicStore();
+
+        return {
+            topicStore
+        }
+    },
+    components: {PageHeaderInfo, SelectedTopicBar, ContactInfo, ArticleCard},
     computed: {
         filteredTopics() {
-            const topicStore = useSelectedTopicStore();
-            return topicStore.filteredTopics;
+            this.topicStore.restoreState();
+            return this.topicStore.filteredTopics;
         }
     }
 }

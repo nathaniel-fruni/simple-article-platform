@@ -23,11 +23,22 @@ const router = createRouter({
       component: ContactFormView
     },
     {
-      path: '/article',
+      path: '/article/:slug',
       name: 'article',
       component: ArticleView
     }
-  ]
+  ],
+  scrollBehavior(to, from, savedPosition) {
+    // Return desired position or a promise that resolves to a position
+    if (to.hash) {
+      return {
+        el: to.hash,
+        behavior: 'smooth',
+      };
+    } else {
+      return { top: 0 };
+    }
+  },
 })
 
 export default router

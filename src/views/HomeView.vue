@@ -22,9 +22,9 @@
                         <a href="#section_2">
                             <div class="d-flex">
                                 <div>
-                                    <h5 class="mb-2">Web Design</h5>
+                                    <h5 class="mb-2">Find a topic for you</h5>
 
-                                    <p class="mb-0">Explore the art and science of web design, where every pixel has a purpose and every color tells a story.</p>
+                                    <p class="mb-0">Explore the collection of articles about various topics. Simply choose the ones that interests you the most.</p>
                                 </div>
                             </div>
 
@@ -36,16 +36,16 @@
                 <div class="col-lg-6 col-12">
                     <div class="custom-block custom-block-overlay">
                         <div class="d-flex flex-column h-100">
-                            <img src="/public/images/coding_feature.jpg" class="custom-block-image img-fluid" alt="">
+                            <img src="/public/images/newspaper-2542330_1280.jpg" class="custom-block-image img-fluid" alt="">
 
                             <div class="custom-block-overlay-text d-flex">
                                 <div>
-                                    <h5 class="text-white mb-2">Code</h5>
+                                    <h5 class="text-white mb-2">A space where diverse topics converge</h5>
 
-                                    <p class="text-white">Enter the realm where logic and language converge to build the backbone of the digital world. Explore the syntax and semantics that shape our digital landscape. From programming paradigms to the latest coding languages, this is the space where ideas are translated into functional reality, and the possibilities are as vast as lines of code themselves.</p>
+                                    <p class="text-white">Explore a range of insightful articles spanning design, marketing, finance, music, coding, and more. Our carefully crafted content offers a journey into the realms of creativity, innovation, and knowledge. Choose your preferred topic, dive into captivating articles, and embark on a discovery of ideas that inspire and inform. Join us on this intellectual voyage, where every click opens a gateway to new insights and perspectives.</p>
 
                                     <div class="text-center">
-                                        <a href="#section_2" class="btn custom-btn mt-2 mt-lg-3">Learn More</a>
+                                        <a href="#section_3" class="btn custom-btn mt-2 mt-lg-3">Learn More</a>
                                     </div>
                                 </div>
                             </div>
@@ -54,7 +54,10 @@
                         </div>
                     </div>
                 </div>
+            </div>
 
+            <div class="mt-3">
+                <SelectTopicBar />
             </div>
         </div>
     </section>
@@ -74,7 +77,12 @@
             <div class="row">
                 <ul class="nav nav-tabs" id="myTab" role="tablist">
                     <li v-for="topic in filteredTopics" :key="topic.id" class="nav-item" role="presentation">
-                        <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#design-tab-pane" type="button" role="tab" aria-controls="design-tab-pane" aria-selected="true">{{ topic.name }}</button>
+                        <button
+                            :class="{ 'active': selectedTopic === topic }"
+                            class="nav-link"
+                            type="button"
+                            @click="selectTopic(topic)"
+                        >{{ topic.name }}</button>
                     </li>
                 </ul>
             </div>
@@ -82,24 +90,21 @@
 
         <div class="container">
             <div class="row">
-
                 <div class="col-12">
                     <div class="tab-content" id="myTabContent">
-
-                        <div class="tab-pane fade show active" id="design-tab-pane" role="tabpanel" aria-labelledby="design-tab" tabindex="0">
+                        <div v-for="topic in filteredTopics" :key="topic.id" :class="{ 'show active': selectedTopic === topic }" class="tab-pane fade" role="tabpanel" :aria-labelledby="`${topic.slug}-tab`" tabindex="0">
                             <div class="row pb-2">
-                                <div class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-0">
+                                <div v-for="article in topic.articles" :key="article.id" class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-0">
                                     <div class="custom-block bg-white shadow-lg">
-                                        <a href="topics-detail.html">
+                                        <router-link :to="'/article/' + article.slug">
                                             <div class="d-flex">
                                                 <div>
-                                                    <h5 class="mb-2">Web Design</h5>
-
-                                                    <p class="mb-0">Immerse yourself in the art and science of web design</p>
+                                                    <h5 class="mb-2">{{ article.name }}</h5>
+                                                    <p class="mb-0">{{ article.description }}</p>
                                                 </div>
                                             </div>
-                                            <img src="/images/topics/undraw_Remote_design_team_re_urdx.png" class="custom-block-image img-fluid" alt="">
-                                        </a>
+                                            <img :src="'/public/images/topics/' + article.image" class="custom-block-image img-fluid">
+                                        </router-link>
                                     </div>
                                 </div>
                             </div>
@@ -128,9 +133,9 @@
                             </div>
 
                             <li>
-                                <h4 class="text-white mb-3">Search your favourite topic</h4>
+                                <h4 class="text-white mb-3">Pick your favourite topic</h4>
 
-                                <p class="text-white">Begin your journey by searching for your favorite topics. Enter the realm of endless possibilities as you explore and discover the content that sparks your curiosity.</p>
+                                <p class="text-white">Begin your journey by picking your favorite topics. Enter the realm of endless possibilities as you explore and discover the content that sparks your curiosity.</p>
 
                                 <div class="icon-holder">
                                     <i class="bi-search"></i>
@@ -162,22 +167,68 @@
             </div>
         </div>
     </section>
-    <FaQ />
-    <ContactInfo/>
+
+    <section id="section_4">
+        <FaQ />
+    </section>
+
+    <section id="section_5">
+        <ContactInfo/>
+    </section>
 </template>
 
 <script>
 import {useSelectedTopicStore} from "@/stores/SelectedTopicsStore";
+import SelectTopicBar from "@/components/SelectTopicBar.vue";
 import ContactInfo from "@/components/ContactInfo.vue";
 import FaQ from "@/components/FaQ.vue";
 
 export default {
-    components: {FaQ, ContactInfo},
+    data () {
+        const topicStore = useSelectedTopicStore();
+
+        return {
+            topicStore,
+            selectedTopic: null,
+        }
+    },
+    components: {FaQ, ContactInfo, SelectTopicBar},
     computed: {
         filteredTopics() {
-            const topicStore = useSelectedTopicStore();
-            return topicStore.filteredTopics;
+            this.topicStore.restoreState();
+            return this.topicStore.filteredTopics;
+        },
+        defaultTopic() {
+            return this.filteredTopics[0];
+        },
+    },
+    watch: {
+        filteredTopics: {
+            handler(newTopics) {
+                this.selectedTopic = newTopics[0];
+            },
+            immediate: true, // This ensures the handler is called immediately on component creation
+        },
+    },
+    methods: {
+        selectTopic(topic) {
+            this.selectedTopic = topic;
         }
     }
 }
 </script>
+
+<style scoped>
+.tab-pane {
+    display: none;
+}
+
+.nav-link.active{
+    border-bottom-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+.tab-pane.show {
+    display: block;
+}
+</style>
