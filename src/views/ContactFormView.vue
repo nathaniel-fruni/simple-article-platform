@@ -1,5 +1,6 @@
 <template>
     <PageHeaderInfo />
+
     <section class="section-padding section-bg">
         <div class="container">
             <div class="row">
@@ -9,11 +10,11 @@
                 </div>
 
                 <div class="col-lg-6 col-12">
-                    <form action="#" method="post" class="custom-form contact-form" role="form">
+                    <form @submit.prevent="submitForm" class="custom-form contact-form" role="form">
                         <div class="row">
                             <div class="col-lg-6 col-md-6 col-12">
                                 <div class="form-floating">
-                                    <input type="text" name="name" id="name" class="form-control" placeholder="Name" required="">
+                                    <input v-model="name" type="text" name="name" id="name" class="form-control" placeholder="Name" required="">
 
                                     <label for="floatingInput">Name</label>
                                 </div>
@@ -21,7 +22,7 @@
 
                             <div class="col-lg-6 col-md-6 col-12">
                                 <div class="form-floating">
-                                    <input type="email" name="email" id="email" pattern="[^ @]*@[^ @]*" class="form-control" placeholder="Email address" required="">
+                                    <input v-model="email" type="email" name="email" id="email" pattern="[^ @]*@[^ @]*" class="form-control" placeholder="Email address" required="">
 
                                     <label for="floatingInput">Email address</label>
                                 </div>
@@ -29,13 +30,13 @@
 
                             <div class="col-lg-12 col-12">
                                 <div class="form-floating">
-                                    <input type="text" name="subject" id="name" class="form-control" placeholder="Name" required="">
+                                    <input v-model="subject" type="text" name="subject" id="subject" class="form-control" placeholder="Subject" required="">
 
                                     <label for="floatingInput">Subject</label>
                                 </div>
 
                                 <div class="form-floating">
-                                    <textarea class="form-control" id="message" name="message" placeholder="Tell me about the project"></textarea>
+                                    <textarea v-model="message" class="form-control" id="message" name="message" placeholder="Tell me about the project"></textarea>
 
                                     <label for="floatingTextarea">Tell me about the project</label>
                                 </div>
@@ -56,19 +57,51 @@
 
                     <p>Trieda Anreja Hlinku 1, 949 74, Nitra</p>
                 </div>
-
             </div>
         </div>
     </section>
+
     <FaQ />
 </template>
 
 <script>
+import axios from "axios";
 import {defineComponent} from "vue";
 import FaQ from "@/components/FaQ.vue";
 import PageHeaderInfo from '@/components/PageHeaderInfo.vue'
 
 export default defineComponent({
-    components: {PageHeaderInfo,FaQ}
+    data() {
+        return {
+            name: '',
+            email: '',
+            subject: '',
+            message: ''
+        }
+    },
+    components: {PageHeaderInfo,FaQ},
+    methods: {
+        submitForm() {
+            const formData = {
+                name: this.name,
+                email: this.email,
+                subject: this.subject,
+                message: this.message
+            };
+
+            axios.post('https://jsonplaceholder.typicode.com/posts', formData)
+                .then(response => {
+                    console.log(response.data);
+                })
+                .catch(error => {
+                    console.error(error);
+                });
+
+            this.name = '';
+            this.email = '';
+            this.subject = '';
+            this.message = '';
+        }
+    }
 })
 </script>

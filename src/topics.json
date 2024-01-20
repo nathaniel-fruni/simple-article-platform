@@ -7,17 +7,36 @@
       "articles": [
         {
           "id": 1,
-          "name": "Web Design",
+          "name": "Unleashing the Power of Web Design: A Journey to Financial Freedom",
           "slug": "web-design",
           "description": "Immerse yourself in the art and science of web design",
-          "image": "undraw_Remote_design_team_re_urdx.png"
+          "image": "undraw_Remote_design_team_re_urdx.png",
+          "article_image1":"rear-view-young-college-student.jpg",
+          "article_image2": "colleagues-working-cozy-office-medium-shot.jpg",
+          "quote": "Freelancing your skills isn’t going to make you a millionaire overnight.",
+          "section1": "So how can you stand out, do something unique and interesting, build an online business, and get paid enough to change life. Please visit TemplateMo website to download free website templates.",
+          "section2": "There are so many ways to make money online. Below are several platforms you can use to find success. Keep in mind that there is no one path everyone can take. If that were the case, everyone would have a million dollars.",
+          "section3": "Most people start with freelancing skills they already have as a side hustle to build up income. This extra cash can be used for a vacation, to boost up savings, investing, build business."
         },
         {
           "id": 2,
-          "name": "Graphic",
+          "name": "Unlocking the Creative Realm: A Journey into Graphic Design",
           "slug": "graphic",
           "description": "Discover the power of visual storytelling through graphic design",
-          "image": "undraw_Redesign_feedback_re_jvm0.png"
+          "image": "undraw_Redesign_feedback_re_jvm0.png",
+          "article_image1": "graphic-article-image1.jpg",
+          "article_image2": "graphic-article-image2.jpg",
+          "quote": "Unleash your creativity in the world of graphic design.",
+          "section1": "In a world saturated with visual stimuli, graphic design stands as the silent communicator, weaving narratives through colors, shapes, and typography. It's an art form that goes beyond aesthetics, delving into the psychology of perception and the science of storytelling. Join us on a journey into the captivating world of graphic design, where creativity knows no bounds.",
+          "section2": "As we step into the future, the role of graphic design will only intensify. With the rise of augmented reality, virtual reality, and immersive technologies, designers will have new canvases to explore. The fusion of design with technology will redefine how we interact with visual content, opening up possibilities that were once confined to the realm of science fiction.",
+          "section3": "In conclusion, graphic design is a journey of endless possibilities, where creativity knows no bounds. It's about crafting visual experiences that transcend the ordinary and leave an indelible mark on the viewer. So, whether you're a seasoned designer or someone just stepping into this creative realm, embrace the magic of graphic design and let your imagination soar. After all, in the world of graphics, every pixel tells a story waiting to be discovered."
+        },
+        {
+          "id": 3,
+          "name": "Logo Design",
+          "slug": "logo-design",
+          "description": "Explore the world of logo design, where creativity meets brand identity",
+          "image": "colleagues-working-cozy-office-medium-shot.png"
         },
         {
           "id": 3,

@@ -1,13 +1,13 @@
 <template>
-    <footer class="site-footer section-padding">
+    <footer v-if="!NotFoundView" class="site-footer section-padding">
         <div class="container">
             <div class="row">
 
                 <div class="col-lg-3 col-12 mb-4 pb-2">
-                    <a class="navbar-brand mb-2" href="index.html">
+                    <router-link to="/" class="navbar-brand mb-2">
                         <i class="bi-back"></i>
                         <span>Topic</span>
-                    </a>
+                    </router-link>
                 </div>
 
                 <div class="col-lg-3 col-md-4 col-6">
@@ -15,19 +15,19 @@
 
                     <ul class="site-footer-links">
                         <li class="site-footer-link-item">
-                            <a href="#" class="site-footer-link">Home</a>
+                            <router-link to="/" class="site-footer-link">Home</router-link>
                         </li>
 
                         <li class="site-footer-link-item">
-                            <a href="#" class="site-footer-link">How it works</a>
+                            <router-link to="/#section_3" class="site-footer-link">How it works</router-link>
                         </li>
 
                         <li class="site-footer-link-item">
-                            <a href="#" class="site-footer-link">FAQs</a>
+                            <router-link to="/#section_4" class="site-footer-link">FAQs</router-link>
                         </li>
 
                         <li class="site-footer-link-item">
-                            <a href="#" class="site-footer-link">Contact</a>
+                            <router-link to="/#section_5" class="site-footer-link">Contact</router-link>
                         </li>
                     </ul>
                 </div>
@@ -57,3 +57,22 @@
         </div>
     </footer>
 </template>
+
+<script>
+import {usePageNotFoundStore} from "@/stores/PageNotFoundStore";
+
+export default {
+    data() {
+        const pageNotFoundStore = usePageNotFoundStore();
+
+        return {
+            pageNotFoundStore
+        };
+    },
+    computed: {
+        NotFoundView() {
+            return this.pageNotFoundStore.isNotFoundView;
+        },
+    }
+}
+</script>

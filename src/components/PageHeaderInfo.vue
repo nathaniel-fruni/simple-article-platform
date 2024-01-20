@@ -7,6 +7,7 @@
                     <nav>
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><router-link to="/">Homepage</router-link></li>
+                            <li v-if="isArticleRoute" class="breadcrumb-item"><router-link to="/articles">Articles</router-link></li>
                             <li class="breadcrumb-item active">{{ currentPage }}</li>
                         </ol>
                     </nav>
@@ -25,6 +26,11 @@ export default {
         return {
             currentPage: ''
         };
+    },
+    computed: {
+        isArticleRoute() {
+            return this.$route.path.startsWith('/article/');
+        }
     },
     watch: {
         $route(newRoute) {
@@ -45,11 +51,11 @@ export default {
                 '/contactForm': 'Contact Form'
             };
 
-            this.currentPage = routeMapping[route.path] || this.extractPageName(route.path);
-        },
-        extractPageName(path) {
-            const pathSegments = path.split('/');
-            return pathSegments[pathSegments.length - 1] || 'Unknown';
+            if (this.isArticleRoute) {
+                this.currentPage = 'Article';
+            } else {
+                this.currentPage = routeMapping[route.path] || 'Unknown';
+            }
         }
     }
 };

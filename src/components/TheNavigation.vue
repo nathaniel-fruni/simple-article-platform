@@ -1,6 +1,6 @@
 <template>
 
-    <nav id="nav" :class="{ scrolled: isScrolled }">
+    <nav v-if="!NotFoundView" id="nav" :class="{ scrolled: isScrolled }">
         <div class="container d-inline-flex justify-content-between align-items-center" style="color:black">
             <router-link to="/" class="navbar-brand">
                 <i class="bi-back me-2 fs-10"></i>
@@ -44,14 +44,24 @@
 </template>
 
 <script>
+import {usePageNotFoundStore} from "@/stores/PageNotFoundStore";
+
 export default {
     data() {
+        const pageNotFoundStore = usePageNotFoundStore();
+
         return {
+            pageNotFoundStore,
             isResponsive: false,
             isScrolled: false,
             showHamburger: false,
             showMenu: true,
         };
+    },
+    computed: {
+        NotFoundView() {
+            return this.pageNotFoundStore.isNotFoundView;
+        },
     },
     methods: {
         toggleMenu() {

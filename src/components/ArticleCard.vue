@@ -9,7 +9,7 @@
 
                     <p class="mb-0">{{ article.description }}</p>
 
-                    <router-link :to="'/article/' + article.slug" class="btn custom-btn mt-3 mt-lg-4">Learn More</router-link>
+                    <router-link :to="{ name:'article', params: { slug: article.slug } }" class="btn custom-btn mt-3 mt-lg-4">Learn More</router-link>
                 </div>
             </div>
         </div>

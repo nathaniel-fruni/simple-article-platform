@@ -1,71 +1,108 @@
 <template>
+    <PageHeaderInfo />
+
     <section class="topics-detail-section section-padding" id="topics-detail">
         <div class="container">
             <div class="row">
 
                 <div class="col-lg-8 col-12 m-auto">
-                    <h3 class="mb-4">Introduction to Web Design</h3>
+                    <h3 class="mb-4">{{ article.name }}</h3>
 
-                    <p>So how can you stand out, do something unique and interesting, build an online business, and get paid enough to change life. Please visit TemplateMo website to download free website templates.</p>
+                    <p>{{ article.section1 }}</p>
 
-                    <p><strong>There are so many ways to make money online</strong>. Below are several platforms you can use to find success. Keep in mind that there is no one path everyone can take. If that were the case, everyone would have a million dollars.</p>
+                    <p>{{ article.section2 }}</p>
 
                     <blockquote>
-                        Freelancing your skills isn’t going to make you a millionaire overnight.
+                        {{ article.quote }}
                     </blockquote>
 
                     <div class="row my-4">
                         <div class="col-lg-6 col-md-6 col-12">
-                            <img src="/public/images/rear-view-young-college-student.jpg" class="topics-detail-block-image img-fluid" alt="student">
+                            <img :src="'/public/images/articles/' + article.article_image1" class="topics-detail-block-image img-fluid" alt="student">
                         </div>
 
                         <div class="col-lg-6 col-md-6 col-12 mt-4 mt-lg-0 mt-md-0">
-                            <img src="/public/images/colleagues-working-cozy-office-medium-shot.jpg" class="topics-detail-block-image img-fluid" alt="office">
+                            <img :src="'/public/images/articles/' + article.article_image2" class="topics-detail-block-image img-fluid" alt="office">
                         </div>
                     </div>
 
-                    <p>Most people start with freelancing skills they already have as a side hustle to build up income. This extra cash can be used for a vacation, to boost up savings, investing, build business.</p>
+                    <p>{{ article.section3 }}</p>
                 </div>
 
             </div>
         </div>
     </section>
-
 
     <section class="section-padding section-bg">
         <div class="container">
             <div class="row justify-content-center">
 
                 <div class="col-lg-5 col-12">
-                    <img src="/public/images/rear-view-young-college-student.jpg" class="newsletter-image img-fluid" alt="">
+                    <img src="/public/images/newspaper-2542330_1280.jpg" class="newsletter-image img-fluid" alt="">
                 </div>
 
                 <div class="col-lg-5 col-12 subscribe-form-wrap d-flex justify-content-center align-items-center">
-                    <form class="custom-form subscribe-form" action="#" method="post" role="form">
+                    <form class="custom-form subscribe-form" @submit.prevent="submitForm">
                         <h4 class="mb-4 pb-2">Get Newsletter</h4>
 
-                        <input type="email" name="subscribe-email" id="subscribe-email" pattern="[^ @]*@[^ @]*" class="form-control" placeholder="Email Address" required="">
+                        <input v-model="email" type="email" name="subscribe-email" id="subscribe-email" pattern="[^ @]*@[^ @]*" class="form-control" placeholder="Email Address" required="">
 
                         <div class="col-lg-12 col-12">
                             <button type="submit" class="form-control">Subscribe</button>
                         </div>
                     </form>
                 </div>
-
             </div>
         </div>
     </section>
 </template>
 
 <script>
-export default {
-    mounted() {
-        // Access the article slug in the mounted lifecycle hook
-        const articleSlug = this.$route.params.slug;
-        console.log("Article Slug:", articleSlug);
+import axios  from "axios";
+import PageHeaderInfo from "@/components/PageHeaderInfo.vue";
+import dataTopics from "../topics.json";
 
-        // Now you can use the article slug to fetch data or perform other actions
-        // based on the specific article.
+export default {
+    data() {
+        return {
+            article: null,
+            email: '',
+        }
+    },
+    components: {PageHeaderInfo},
+    methods: {
+        getArticleBySlug(slug) {
+            for (const topic of dataTopics.topics) {
+                this.article = topic.articles.find(article => article.slug === slug);
+                if (this.article) {
+                    return this.article;
+                }
+            }
+            return null;
+        },
+        submitForm() {
+            const formData = {
+                email: this.email,
+            };
+
+            axios.post('https://jsonplaceholder.typicode.com/posts', formData)
+                .then(response => {
+                    console.log(response.data);
+                })
+                .catch(error => {
+                    console.error(error);
+                });
+
+            this.email = '';
+        }
+    },
+    created() {
+        const slug = this.$route.params.slug;
+        this.article = this.getArticleBySlug(slug);
+
+        if (!this.article) {
+            this.$router.replace({ name: 'not-found' });
+        }
     }
 }
 </script>

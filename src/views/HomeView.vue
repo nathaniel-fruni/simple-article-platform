@@ -67,7 +67,7 @@
             <div class="row">
 
                 <div class="col-12 text-center">
-                    <h2 class="mb-4">Browse Topics</h2>
+                    <h2 class="mb-4">Featured Articles</h2>
                 </div>
 
             </div>
@@ -94,7 +94,7 @@
                     <div class="tab-content" id="myTabContent">
                         <div v-for="topic in filteredTopics" :key="topic.id" :class="{ 'show active': selectedTopic === topic }" class="tab-pane fade" role="tabpanel" :aria-labelledby="`${topic.slug}-tab`" tabindex="0">
                             <div class="row pb-2">
-                                <div v-for="article in topic.articles" :key="article.id" class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-0">
+                                <div v-for="article in topic.articles.slice(0, 2)" :key="article.id" class="col-lg-6 col-md-6 col-12 mb-4 mb-lg-0">
                                     <div class="custom-block bg-white shadow-lg">
                                         <router-link :to="'/article/' + article.slug">
                                             <div class="d-flex">
@@ -103,12 +103,15 @@
                                                     <p class="mb-0">{{ article.description }}</p>
                                                 </div>
                                             </div>
-                                            <img :src="'/public/images/topics/' + article.image" class="custom-block-image img-fluid">
+                                            <div class="text-center">
+                                                <img :src="'/public/images/topics/' + article.image" class="custom-image img-fluid">
+                                            </div>
                                         </router-link>
                                     </div>
                                 </div>
                             </div>
                         </div>
+
                     </div>
                 </div>
             </div>
@@ -230,5 +233,9 @@ export default {
 
 .tab-pane.show {
     display: block;
+}
+.custom-image {
+    object-fit: cover;
+    max-height: 200px;
 }
 </style>

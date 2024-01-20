@@ -11,6 +11,6 @@ import TheNavigation from './components/TheNavigation.vue'
 import TheFooter from "@/components/TheFooter.vue";
 
 export default {
-    components: {TheFooter, TheNavigation}
+    components: {TheFooter, TheNavigation},
 }
 </script>
