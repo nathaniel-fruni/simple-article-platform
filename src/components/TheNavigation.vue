@@ -3,36 +3,36 @@
         <div class="container d-inline-flex justify-content-between align-items-center" style="color:black">
             <router-link to="/" class="navbar-brand">
                 <i class="bi-back me-2 fs-10"></i>
-                <span class="fs-10 me-5">Topic</span>
+                <span class="fs-10">Topic</span>
             </router-link>
 
             <div>
-                <ul v-if="showMenu" class="main-menu d-inline-flex list-unstyled my-auto" :class="{ responsive: isResponsive }">
-                    <li class="nav-item me-4">
+                <ul v-if="showMenu" class="main-menu d-inline-flex list-unstyled my-auto align-items-center" :class="{ responsive: isResponsive }">
+                    <li class="nav-item me-3">
                         <router-link to="/" class="nav-link">Home</router-link>
                     </li>
 
-                    <li class="nav-item me-4">
+                    <li class="nav-item me-3">
                         <router-link to="/#section_2" class="nav-link">Browse Topics</router-link>
                     </li>
 
-                    <li class="nav-item me-4">
+                    <li class="nav-item me-3">
                         <router-link to="/#section_3" class="nav-link">How it works</router-link>
                     </li>
 
-                    <li class="nav-item me-4">
+                    <li class="nav-item me-3">
                         <router-link to="/#section_4" class="nav-link">FAQs</router-link>
                     </li>
 
-                    <li class="nav-item me-4">
+                    <li class="nav-item me-3">
                         <router-link to="/#section_5" class="nav-link">Contact</router-link>
                     </li>
 
-                    <li class="me-4"><router-link to="/articles" class="nav-link">Articles</router-link></li>
+                    <li class="me-3"><router-link to="/articles" class="nav-link">Articles</router-link></li>
 
-                    <li class="me-4"><router-link to="/contactForm" class="nav-link">Contact Form</router-link></li>
+                    <li class="me-3"><router-link to="/contactForm" class="nav-link">Contact Form</router-link></li>
 
-                    <li class="me-4"><router-link to="/bookmarked-articles" class="nav-link"><i class="bi-bookmark">Bookmarks</i></router-link></li>
+                    <li class="me-3"><router-link to="/bookmarked-articles" class="nav-link"><i class="bi-bookmark btn btn-light rounded-3"></i></router-link></li>
                 </ul>
 
                 <button v-if="showHamburger" class="hamburger btn btn-lg" @click="toggleMenu">
