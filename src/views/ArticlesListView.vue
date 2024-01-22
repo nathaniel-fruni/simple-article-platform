@@ -47,6 +47,7 @@
 </template>
 
 <script>
+import topicsData from "@/topics.json";
 import { useSelectedTopicStore } from "@/stores/SelectedTopicsStore";
 import SelectedTopicBar from "@/components/SelectTopicBar.vue";
 import PageHeaderInfo from "@/components/PageHeaderInfo.vue";
@@ -58,6 +59,7 @@ export default {
         const topicStore = useSelectedTopicStore();
         return {
             topicStore,
+            topics: topicsData.topics,
             currentPage: 1,
             itemsPerPage: 4
         };
@@ -66,7 +68,7 @@ export default {
     computed: {
         filteredArticles() {
             this.topicStore.restoreState();
-            return this.topicStore.filteredTopics.flatMap(topic => topic.articles);
+            return this.topicStore.filteredTopics(this.topics).flatMap(topic => topic.articles);
         },
         totalPages() {
             return Math.ceil(this.filteredArticles.length / this.itemsPerPage);
@@ -79,6 +81,12 @@ export default {
     },
     watch: {
         filteredArticles: 'adjustCurrentPage',
+    },
+    created() {
+        this.topicStore.restoreState();
+        if (this.topicStore.firstClick === true) {
+            this.topicStore.fillSelectedTopics(this.topics);
+        }
     },
     methods: {
         goToPage(page) {

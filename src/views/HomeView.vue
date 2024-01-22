@@ -28,7 +28,7 @@
                                 </div>
                             </div>
 
-                            <img src="/public/images/topics/undraw_Remote_design_team_re_urdx.png" class="custom-block-image img-fluid" alt="">
+                            <img src="/images/topics/undraw_Remote_design_team_re_urdx.png" class="custom-block-image img-fluid" alt="">
                         </a>
                     </div>
                 </div>
@@ -36,7 +36,7 @@
                 <div class="col-lg-6 col-12">
                     <div class="custom-block custom-block-overlay">
                         <div class="d-flex flex-column h-100">
-                            <img src="/public/images/newspaper-2542330_1280.jpg" class="custom-block-image img-fluid" alt="">
+                            <img src="/images/newspaper-2542330_1280.jpg" class="custom-block-image img-fluid" alt="">
 
                             <div class="custom-block-overlay-text d-flex">
                                 <div>
@@ -104,7 +104,7 @@
                                                 </div>
                                             </div>
                                             <div class="text-center">
-                                                <img :src="'/public/images/topics/' + article.image" class="custom-image img-fluid">
+                                                <img :src="'/images/topics/' + article.image" class="custom-image img-fluid">
                                             </div>
                                         </router-link>
                                     </div>
@@ -181,6 +181,7 @@
 </template>
 
 <script>
+import topicsData from "@/topics.json";
 import {useSelectedTopicStore} from "@/stores/SelectedTopicsStore";
 import SelectTopicBar from "@/components/SelectTopicBar.vue";
 import ContactInfo from "@/components/ContactInfo.vue";
@@ -192,6 +193,7 @@ export default {
 
         return {
             topicStore,
+            topics: topicsData.topics,
             selectedTopic: null,
         }
     },
@@ -199,19 +201,23 @@ export default {
     computed: {
         filteredTopics() {
             this.topicStore.restoreState();
-            return this.topicStore.filteredTopics;
+            return this.topicStore.filteredTopics(this.topics);
         },
-        defaultTopic() {
-            return this.filteredTopics[0];
-        },
+
     },
     watch: {
         filteredTopics: {
             handler(newTopics) {
                 this.selectedTopic = newTopics[0];
             },
-            immediate: true, // This ensures the handler is called immediately on component creation
+            immediate: true,
         },
+    },
+    created() {
+        this.topicStore.restoreState();
+        if (this.topicStore.firstClick === true) {
+            this.topicStore.fillSelectedTopics(this.topics);
+        }
     },
     methods: {
         selectTopic(topic) {

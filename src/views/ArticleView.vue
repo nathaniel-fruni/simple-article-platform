@@ -18,11 +18,11 @@
 
                     <div class="row my-4">
                         <div class="col-lg-6 col-md-6 col-12">
-                            <img :src="'/public/images/articles/' + article.article_image1" class="topics-detail-block-image img-fluid" alt="student">
+                            <img :src="'/images/articles/' + article.article_image1" class="topics-detail-block-image img-fluid" alt="student">
                         </div>
 
                         <div class="col-lg-6 col-md-6 col-12 mt-4 mt-lg-0 mt-md-0">
-                            <img :src="'/public/images/articles/' + article.article_image2" class="topics-detail-block-image img-fluid" alt="office">
+                            <img :src="'/images/articles/' + article.article_image2" class="topics-detail-block-image img-fluid" alt="office">
                         </div>
                     </div>
 
@@ -38,7 +38,7 @@
             <div class="row justify-content-center">
 
                 <div class="col-lg-5 col-12">
-                    <img src="/public/images/newspaper-2542330_1280.jpg" class="newsletter-image img-fluid" alt="">
+                    <img src="/images/newspaper-2542330_1280.jpg" class="newsletter-image img-fluid" alt="">
                 </div>
 
                 <div class="col-lg-5 col-12 subscribe-form-wrap d-flex justify-content-center align-items-center">
@@ -106,3 +106,7 @@ export default {
     }
 }
 </script>
+
+<style scoped>
+
+</style>

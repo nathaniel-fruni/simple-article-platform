@@ -1,25 +1,21 @@
 import { defineStore } from 'pinia';
-import topicsData from "@/topics.json";
+//import topicsData from "@/topics.json";
 import type { Topic } from "@/types/Topic"
 
 interface TopicState {
     selectedTopics: string[];
-    topics: Topic[];
     firstClick: boolean;
 }
 
 export const useSelectedTopicStore = defineStore('selectedTopic', {
     state: (): TopicState => ({
-        selectedTopics: topicsData.topics.map(topic => topic.name),
-        topics: topicsData.topics as Topic[],
+        selectedTopics: [],
         firstClick: true
     }),
-    getters: {
-        filteredTopics(state) {
-            return state.topics.filter(topic => state.selectedTopics.includes(topic.name));
-        }
-    },
     actions: {
+        filteredTopics(topics: Topic[]) {
+            return topics.filter(topic => this.$state.selectedTopics.includes(topic.name));
+        },
         persistState() {
             localStorage.setItem('selectedTopicState', JSON.stringify(this.$state));
         },
@@ -41,12 +37,12 @@ export const useSelectedTopicStore = defineStore('selectedTopic', {
             this.selectedTopics = [];
             this.persistState();
         },
-        fillSelectedTopics() {
-            this.selectedTopics = topicsData.topics.map(topic => topic.name);
+        fillSelectedTopics(topics: Topic[]) {
+            this.selectedTopics = topics.map(topic => topic.name);
             this.persistState();
         },
-        isFull() {
-            const topicNames = topicsData.topics.map(topic => topic.name);
+        isFull(topics: Topic[]) {
+            const topicNames = topics.map(topic => topic.name);
             return this.selectedTopics.length === topicNames.length &&
                 this.selectedTopics.every(topic => topicNames.includes(topic));
         },

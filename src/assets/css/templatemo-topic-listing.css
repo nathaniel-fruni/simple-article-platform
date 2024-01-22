@@ -661,7 +661,10 @@ strong {
 }
 
 .topics-detail-block-image {
-  display: block;
+  object-fit: cover;
+  overflow: hidden;
+  width: 600px;
+  height: 250px;
   border-radius: var(--border-radius-medium);
 }
 
@@ -737,7 +740,6 @@ blockquote {
   TIMELINE              
 -----------------------------------------*/
 .timeline-section {
-  background-image: url('public/images/colleagues-working-cozy-office-medium-shot.jpg');
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;

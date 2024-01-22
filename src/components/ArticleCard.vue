@@ -1,7 +1,7 @@
 <template>
     <div class="custom-block custom-block-topics-listing bg-white shadow-lg mb-5">
         <div class="d-flex">
-            <img :src="'/public/images/topics/' + article.image" class="custom-block-image img-fluid">
+            <img :src="'/images/topics/' + article.image" class="custom-block-image img-fluid">
 
             <div class="custom-block-topics-listing-info d-flex">
                 <div>
