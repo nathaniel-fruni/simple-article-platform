@@ -19,13 +19,19 @@ export const useBookmarkedArticlesStore = defineStore('selectedArticle', {
                 Object.assign(this.$state, JSON.parse(storedState));
             }
         },
-        addSelectedTopic(article: Article) {
-            this.bookmarkedArticles.push(article);
-            this.persistState();
+        addSelectedArticle(article: Article) {
+            const exists = this.bookmarkedArticles.some((a) => a.id === article.id);
+            if (!exists) {
+                this.bookmarkedArticles.push(article);
+                this.persistState();
+            } else {
+                this.removeSelectedArticle(article);
+            }
         },
-        removeSelectedTopic(article: Article) {
-            this.bookmarkedArticles = this.bookmarkedArticles.filter(element => element !== article);
+        removeSelectedArticle(article: Article) {
+            this.bookmarkedArticles = this.bookmarkedArticles.filter((a) => a.id !== article.id);
             this.persistState();
         }
+
     }
 })

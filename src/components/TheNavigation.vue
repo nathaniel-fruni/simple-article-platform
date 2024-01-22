@@ -102,7 +102,7 @@ nav {
 }
 
 .bi-bookmark {
-    color:#717275;
+    color:#13547a;
 }
 
 .bi-bookmark:hover {

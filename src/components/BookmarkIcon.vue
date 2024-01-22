@@ -2,7 +2,8 @@
     <div class="icon-holder pb-3">
         <i @click="bookmarkArticle(article)"
            class="bi-bookmark"
-        >{{ slotText }}</i>
+           :class="{ bookmarked: isBookmarked(article) }"
+        ></i>
     </div>
 </template>
 
@@ -19,16 +20,17 @@ export default {
     },
     props: {
         article: Object,
-        slotText: String,
+    },
+    mounted() {
+        this.bookmarkStore.restoreState();
     },
     methods: {
         bookmarkArticle(article) {
-            if (this.bookmarkStore.bookmarkedArticles.includes(article)) {
-                this.bookmarkStore.removeSelectedTopic(article);
-            } else {
-                this.bookmarkStore.addSelectedTopic(article);
-            }
+            this.bookmarkStore.addSelectedArticle(article);
         },
+        isBookmarked(article) {
+            return this.bookmarkStore.bookmarkedArticles.some((a) => a.id === article.id);
+        }
     }
 }
 </script>
@@ -42,5 +44,9 @@ export default {
 
 .bi-bookmark:hover {
     color: #13547a;
+}
+
+.bookmarked {
+    color: yellow;
 }
 </style>

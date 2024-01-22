@@ -24,6 +24,6 @@ export default {
     props: {
         article: Object,
     },
-    components: {BookmarkIcon}
+    components: {BookmarkIcon},
 }
 </script>

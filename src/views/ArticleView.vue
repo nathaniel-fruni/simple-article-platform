@@ -8,7 +8,7 @@
                 <div class="col-lg-8 col-12 m-auto">
                     <div>
                         <h3 class="mb-4">{{ article.name }}</h3>
-                        <BookmarkIcon :article="article" slot-text="Bookmark this article" />
+                        <BookmarkIcon :article="article" />
                     </div>
 
                     <p>{{ article.section1 }}</p>

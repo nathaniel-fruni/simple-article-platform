@@ -107,7 +107,6 @@
                                                 <img :src="'/images/topics/' + article.image" class="custom-image img-fluid" alt="picture">
                                                 </router-link>
                                             </div>
-                                            <BookmarkIcon :article="article" />
                                     </div>
                                 </div>
                             </div>
@@ -184,7 +183,6 @@ import {useSelectedTopicStore} from "@/stores/SelectedTopicsStore";
 import SelectTopicBar from "@/components/SelectTopicBar.vue";
 import ContactInfo from "@/components/ContactInfo.vue";
 import FaQ from "@/components/FaQ.vue";
-import BookmarkIcon from "@/components/BookmarkIcon.vue";
 
 export default {
     data () {
@@ -196,7 +194,7 @@ export default {
             selectedTopic: null,
         }
     },
-    components: {FaQ, ContactInfo, SelectTopicBar, BookmarkIcon},
+    components: {FaQ, ContactInfo, SelectTopicBar},
     computed: {
         filteredTopics() {
             this.topicStore.restoreState();
