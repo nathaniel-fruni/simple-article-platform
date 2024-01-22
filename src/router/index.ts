@@ -3,6 +3,7 @@ import HomeView from '@/views/HomeView.vue'
 import ArticlesListView from "@/views/ArticlesListView.vue";
 import ContactFormView from "@/views/ContactFormView.vue";
 import ArticleView from "@/views/ArticleView.vue";
+import BookmarkedArticlesView from "@/views/BookmarkedArticlesView.vue";
 import NotFoundView from "@/views/NotFoundView.vue";
 
 const router = createRouter({
@@ -27,6 +28,11 @@ const router = createRouter({
       path: '/article/:slug',
       name: 'article',
       component: ArticleView
+    },
+    {
+      path: '/bookmarked-articles',
+      name: 'bookmarked-articles',
+      component: BookmarkedArticlesView
     },
     {
       path: '/:pathMatch(.*)*',

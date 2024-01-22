@@ -2,7 +2,6 @@
     <footer v-if="!NotFoundView" class="site-footer section-padding">
         <div class="container">
             <div class="row">
-
                 <div class="col-lg-3 col-12 mb-4 pb-2">
                     <router-link to="/" class="navbar-brand mb-2">
                         <i class="bi-back"></i>

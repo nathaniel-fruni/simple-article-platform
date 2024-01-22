@@ -4,7 +4,6 @@
     <section class="section-padding section-bg">
         <div class="container">
             <div class="row">
-
                 <div class="col-lg-12 col-12">
                     <h3 class="mb-4 pb-2">We'd love to hear from you</h3>
                 </div>
@@ -14,17 +13,17 @@
                         <div class="row">
                             <div class="col-lg-6 col-md-6 col-12">
                                 <div class="form-floating">
-                                    <input v-model="name" type="text" name="name" id="name" class="form-control" placeholder="Name" required="">
+                                    <input v-model="name" type="text" name="name" id="name" class="form-control" placeholder="Name" required="" autocomplete="on">
 
-                                    <label for="floatingInput">Name</label>
+                                    <label for="name">Name</label>
                                 </div>
                             </div>
 
                             <div class="col-lg-6 col-md-6 col-12">
                                 <div class="form-floating">
-                                    <input v-model="email" type="email" name="email" id="email" pattern="[^ @]*@[^ @]*" class="form-control" placeholder="Email address" required="">
+                                    <input v-model="email" type="email" name="email" id="email" pattern="[^ @]*@[^ @]*" class="form-control" placeholder="Email address" required="" autocomplete="on">
 
-                                    <label for="floatingInput">Email address</label>
+                                    <label for="email">Email address</label>
                                 </div>
                             </div>
 
@@ -32,20 +31,19 @@
                                 <div class="form-floating">
                                     <input v-model="subject" type="text" name="subject" id="subject" class="form-control" placeholder="Subject" required="">
 
-                                    <label for="floatingInput">Subject</label>
+                                    <label for="subject">Subject</label>
                                 </div>
 
                                 <div class="form-floating">
                                     <textarea v-model="message" class="form-control" id="message" name="message" placeholder="Tell me about the project"></textarea>
 
-                                    <label for="floatingTextarea">Tell me about the project</label>
+                                    <label for="message">Tell me about the project</label>
                                 </div>
                             </div>
 
                             <div class="col-lg-4 col-12 ms-auto">
                                 <button type="submit" class="form-control">Submit</button>
                             </div>
-
                         </div>
                     </form>
                 </div>
@@ -66,11 +64,10 @@
 
 <script>
 import axios from "axios";
-import {defineComponent} from "vue";
 import FaQ from "@/components/FaQ.vue";
 import PageHeaderInfo from '@/components/PageHeaderInfo.vue'
 
-export default defineComponent({
+export default {
     data() {
         return {
             name: '',
@@ -103,5 +100,5 @@ export default defineComponent({
             this.message = '';
         }
     }
-})
+}
 </script>

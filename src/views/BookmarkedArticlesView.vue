@@ -4,13 +4,10 @@
 
         <section class="section-padding">
             <div class="container">
-                <div class="mb-5">
-                    <SelectedTopicBar />
-                </div>
 
                 <div class="row">
                     <div class="col-lg-12 col-12 text-center">
-                        <h2 class="mb-4">Articles To Read</h2>
+                        <h2 class="mb-4">Your Bookmarked Articles</h2>
                     </div>
 
                     <div class="col-lg-8 col-12 mt-3 mx-auto">
@@ -49,28 +46,25 @@
 </template>
 
 <script>
-import topicsData from "@/topics.json";
-import { useSelectedTopicStore } from "@/stores/SelectedTopicsStore";
-import SelectedTopicBar from "@/components/SelectTopicBar.vue";
+import { useBookmarkedArticlesStore } from "@/stores/BookmarkedArticlesStore";
 import PageHeaderInfo from "@/components/PageHeaderInfo.vue";
 import ArticleCard from "@/components/ArticleCard.vue";
 import ContactInfo from "@/components/ContactInfo.vue";
 
 export default {
     data() {
-        const topicStore = useSelectedTopicStore();
+        const bookmarkStore = useBookmarkedArticlesStore();
         return {
-            topicStore,
-            topics: topicsData.topics,
+            bookmarkStore,
             currentPage: 1,
             itemsPerPage: 4
         };
     },
-    components: { PageHeaderInfo, SelectedTopicBar, ContactInfo, ArticleCard },
+    components: { PageHeaderInfo, ContactInfo, ArticleCard },
     computed: {
         filteredArticles() {
-            this.topicStore.restoreState();
-            return this.topicStore.filteredTopics(this.topics).flatMap(topic => topic.articles);
+            this.bookmarkStore.restoreState();
+            return this.bookmarkStore.bookmarkedArticles;
         },
         totalPages() {
             return Math.ceil(this.filteredArticles.length / this.itemsPerPage);
@@ -83,12 +77,6 @@ export default {
     },
     watch: {
         filteredArticles: 'adjustCurrentPage',
-    },
-    created() {
-        this.topicStore.restoreState();
-        if (this.topicStore.firstClick === true) {
-            this.topicStore.fillSelectedTopics(this.topics);
-        }
     },
     methods: {
         goToPage(page) {

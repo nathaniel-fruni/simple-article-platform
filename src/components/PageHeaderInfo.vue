@@ -48,7 +48,8 @@ export default {
             const routeMapping = {
                 '/': 'Homepage',
                 '/articles': 'Articles',
-                '/contactForm': 'Contact Form'
+                '/contactForm': 'Contact Form',
+                '/bookmarked-articles': 'Bookmarked Articles'
             };
 
             if (this.isArticleRoute) {

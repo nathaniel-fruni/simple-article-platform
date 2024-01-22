@@ -1,5 +1,5 @@
 <template>
-    <section class="contact-section section-padding section-bg" id="section_5">
+    <section class="contact-section section-padding section-bg">
         <div class="container">
             <div class="row align-items-center">
 

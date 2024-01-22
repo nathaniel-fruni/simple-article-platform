@@ -6,7 +6,10 @@
             <div class="row">
 
                 <div class="col-lg-8 col-12 m-auto">
-                    <h3 class="mb-4">{{ article.name }}</h3>
+                    <div>
+                        <h3 class="mb-4">{{ article.name }}</h3>
+                        <BookmarkIcon :article="article" slot-text="Bookmark this article" />
+                    </div>
 
                     <p>{{ article.section1 }}</p>
 
@@ -58,9 +61,10 @@
 </template>
 
 <script>
+import dataTopics from "../topics.json";
 import axios  from "axios";
 import PageHeaderInfo from "@/components/PageHeaderInfo.vue";
-import dataTopics from "../topics.json";
+import BookmarkIcon from "@/components/BookmarkIcon.vue";
 
 export default {
     data() {
@@ -69,7 +73,7 @@ export default {
             email: '',
         }
     },
-    components: {PageHeaderInfo},
+    components: {PageHeaderInfo, BookmarkIcon},
     methods: {
         getArticleBySlug(slug) {
             for (const topic of dataTopics.topics) {
@@ -106,7 +110,3 @@ export default {
     }
 }
 </script>
-
-<style scoped>
-
-</style>

@@ -11,6 +11,7 @@
     font-size: 6em;
     color: #2c3e50;
 }
+
 .error-message {
     font-size: 1.5em;
     color: #555;

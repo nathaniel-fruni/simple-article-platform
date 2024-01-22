@@ -4,7 +4,8 @@
         <div class="pt-2 text-center">
             <button v-for="topic in topics" :key="topic.name"
                     :class="{ 'active-button': isTopicSelected(topic.name) }"
-                    class="btn custom-btn mx-2 mx-lg-3" @click="toggleTopic(topic.name)">{{ topic.name }}</button>
+                    class="btn custom-btn m-2 m-lg-3" @click="toggleTopic(topic.name)">{{ topic.name }}
+            </button>
         </div>
     </div>
 </template>
@@ -55,10 +56,12 @@ export default {
 div{
     background-color: #80d0c7;
 }
+
 button{
     background: white;
     color: #717275;
 }
+
 .active-button{
     background: #13547a;
     color: white;

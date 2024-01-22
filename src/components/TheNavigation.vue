@@ -1,5 +1,4 @@
 <template>
-
     <nav v-if="!NotFoundView" id="nav" :class="{ scrolled: isScrolled }">
         <div class="container d-inline-flex justify-content-between align-items-center" style="color:black">
             <router-link to="/" class="navbar-brand">
@@ -32,6 +31,8 @@
                     <li class="me-4"><router-link to="/articles" class="nav-link">Articles</router-link></li>
 
                     <li class="me-4"><router-link to="/contactForm" class="nav-link">Contact Form</router-link></li>
+
+                    <li class="me-4"><router-link to="/bookmarked-articles" class="nav-link"><i class="bi-bookmark">Bookmarks</i></router-link></li>
                 </ul>
 
                 <button v-if="showHamburger" class="hamburger btn btn-lg" @click="toggleMenu">
@@ -40,7 +41,6 @@
             </div>
         </div>
     </nav>
-
 </template>
 
 <script>
@@ -92,11 +92,21 @@ export default {
 nav {
     background-color: rgba(0, 0, 0, 0);
 }
+
 .scrolled{
     background-color: #80d0c7;
 }
+
 .hamburger {
     display: none;
+}
+
+.bi-bookmark {
+    color:#717275;
+}
+
+.bi-bookmark:hover {
+    color: #ecf3f2;
 }
 
 @media screen and (max-width: 1000px) {
@@ -115,7 +125,7 @@ nav {
         position: absolute;
         width:100%;
         top:60px;
-        left: 0px;
+        left: 0;
         padding-top:20px;
         padding-bottom:20px;
         gap: 15px;
@@ -123,7 +133,7 @@ nav {
     }
     .main-menu.responsive li{
         display: flex;
-        margin-left:0px;
+        margin-left:0;
         justify-content: center;
     }
 }

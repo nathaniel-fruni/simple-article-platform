@@ -1,5 +1,4 @@
 import { defineStore } from 'pinia';
-//import topicsData from "@/topics.json";
 import type { Topic } from "@/types/Topic"
 
 interface TopicState {

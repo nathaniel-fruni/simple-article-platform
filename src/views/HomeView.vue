@@ -28,7 +28,7 @@
                                 </div>
                             </div>
 
-                            <img src="/images/topics/undraw_Remote_design_team_re_urdx.png" class="custom-block-image img-fluid" alt="">
+                            <img src="/images/topics/undraw_Remote_design_team_re_urdx.png" class="custom-block-image img-fluid" alt="picture">
                         </a>
                     </div>
                 </div>
@@ -36,9 +36,9 @@
                 <div class="col-lg-6 col-12">
                     <div class="custom-block custom-block-overlay">
                         <div class="d-flex flex-column h-100">
-                            <img src="/images/newspaper-2542330_1280.jpg" class="custom-block-image img-fluid" alt="">
+                            <img src="/images/newspaper-2542330_1280.jpg" class="custom-block-image img-fluid" alt="newspaper_picture">
 
-                            <div class="custom-block-overlay-text d-flex">
+                            <div class="custom-block-overlay-text d-flex container-fluid">
                                 <div>
                                     <h5 class="text-white mb-2">A space where diverse topics converge</h5>
 
@@ -96,7 +96,6 @@
                             <div class="row pb-2">
                                 <div v-for="article in topic.articles.slice(0, 2)" :key="article.id" class="col-lg-6 col-md-6 col-12 mb-4 mb-lg-0">
                                     <div class="custom-block bg-white shadow-lg">
-                                        <router-link :to="'/article/' + article.slug">
                                             <div class="d-flex">
                                                 <div>
                                                     <h5 class="mb-2">{{ article.name }}</h5>
@@ -104,9 +103,11 @@
                                                 </div>
                                             </div>
                                             <div class="text-center">
-                                                <img :src="'/images/topics/' + article.image" class="custom-image img-fluid">
+                                                <router-link :to="'/article/' + article.slug">
+                                                <img :src="'/images/topics/' + article.image" class="custom-image img-fluid" alt="picture">
+                                                </router-link>
                                             </div>
-                                        </router-link>
+                                            <BookmarkIcon :article="article" />
                                     </div>
                                 </div>
                             </div>
@@ -131,9 +132,6 @@
                 <div class="col-lg-10 col-12 mx-auto">
                     <div class="timeline-container">
                         <ul class="vertical-scrollable-timeline" id="vertical-scrollable-timeline">
-                            <div class="list-progress">
-                                <div class="inner"></div>
-                            </div>
 
                             <li>
                                 <h4 class="text-white mb-3">Pick your favourite topic</h4>
@@ -146,7 +144,7 @@
                             </li>
 
                             <li>
-                                <h4 class="text-white mb-3">Find an article</h4>
+                                <h4 class="text-white mb-3">Find and bookmark an article</h4>
 
                                 <p class="text-white">Navigate through a curated collection and find the perfect article that resonates with your interests. From informative insights to captivating stories, there's something for every curious mind.</p>
 
@@ -186,6 +184,7 @@ import {useSelectedTopicStore} from "@/stores/SelectedTopicsStore";
 import SelectTopicBar from "@/components/SelectTopicBar.vue";
 import ContactInfo from "@/components/ContactInfo.vue";
 import FaQ from "@/components/FaQ.vue";
+import BookmarkIcon from "@/components/BookmarkIcon.vue";
 
 export default {
     data () {
@@ -197,7 +196,7 @@ export default {
             selectedTopic: null,
         }
     },
-    components: {FaQ, ContactInfo, SelectTopicBar},
+    components: {FaQ, ContactInfo, SelectTopicBar, BookmarkIcon},
     computed: {
         filteredTopics() {
             this.topicStore.restoreState();
@@ -240,6 +239,7 @@ export default {
 .tab-pane.show {
     display: block;
 }
+
 .custom-image {
     object-fit: cover;
     max-height: 200px;
