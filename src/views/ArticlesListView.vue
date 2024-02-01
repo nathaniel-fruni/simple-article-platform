@@ -70,7 +70,7 @@ export default {
     computed: {
         filteredArticles() {
             this.topicStore.restoreState();
-            return this.topicStore.filteredTopics(this.topics).flatMap(topic => topic.articles);
+            return this.topicStore.filterTopics(this.topics).flatMap(topic => topic.articles);
         },
         totalPages() {
             return Math.ceil(this.filteredArticles.length / this.itemsPerPage);
@@ -86,7 +86,7 @@ export default {
     },
     created() {
         this.topicStore.restoreState();
-        if (this.topicStore.firstClick === true) {
+        if (this.topicStore.isEmpty()) {
             this.topicStore.fillSelectedTopics(this.topics);
         }
     },
@@ -97,10 +97,8 @@ export default {
             }
         },
         adjustCurrentPage() {
-            const totalPages = Math.ceil(this.filteredArticles.length / this.itemsPerPage);
-
-            if (this.currentPage > totalPages) {
-                this.currentPage = totalPages || 1;
+            if (this.currentPage > this.totalPages) {
+                this.currentPage = this.totalPages || 1;
             }
         },
     },

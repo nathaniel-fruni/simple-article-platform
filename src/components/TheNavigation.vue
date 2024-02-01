@@ -8,31 +8,31 @@
 
             <div>
                 <ul v-if="showMenu" class="main-menu d-inline-flex list-unstyled my-auto align-items-center" :class="{ responsive: isResponsive }">
-                    <li class="nav-item me-3">
+                    <li class="nav-item me-3" @click="toggleMenu">
                         <router-link to="/" class="nav-link">Home</router-link>
                     </li>
 
-                    <li class="nav-item me-3">
+                    <li class="nav-item me-3" @click="toggleMenu">
                         <router-link to="/#section_2" class="nav-link">Browse Topics</router-link>
                     </li>
 
-                    <li class="nav-item me-3">
+                    <li class="nav-item me-3" @click="toggleMenu">
                         <router-link to="/#section_3" class="nav-link">How it works</router-link>
                     </li>
 
-                    <li class="nav-item me-3">
+                    <li class="nav-item me-3" @click="toggleMenu">
                         <router-link to="/#section_4" class="nav-link">FAQs</router-link>
                     </li>
 
-                    <li class="nav-item me-3">
+                    <li class="nav-item me-3" @click="toggleMenu">
                         <router-link to="/#section_5" class="nav-link">Contact</router-link>
                     </li>
 
-                    <li class="me-3"><router-link to="/articles" class="nav-link">Articles</router-link></li>
+                    <li class="me-3" @click="toggleMenu"><router-link to="/articles" class="nav-link">Articles</router-link></li>
 
-                    <li class="me-3"><router-link to="/contactForm" class="nav-link">Contact Form</router-link></li>
+                    <li class="me-3" @click="toggleMenu"><router-link to="/contactForm" class="nav-link">Contact Form</router-link></li>
 
-                    <li class="me-3"><router-link to="/bookmarked-articles" class="nav-link"><i class="bi-bookmark btn btn-light rounded-3"></i></router-link></li>
+                    <li class="me-3" @click="toggleMenu"><router-link to="/bookmarked-articles" class="nav-link"><i class="bi-bookmark btn btn-light rounded-3"></i></router-link></li>
                 </ul>
 
                 <button v-if="showHamburger" class="hamburger btn btn-lg" @click="toggleMenu">

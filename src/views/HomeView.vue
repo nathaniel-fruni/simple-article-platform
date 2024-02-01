@@ -23,30 +23,28 @@
                             <div class="d-flex">
                                 <div>
                                     <h5 class="mb-2">Find a topic for you</h5>
-
-                                    <p class="mb-0">Explore the collection of articles about various topics. Simply choose the ones that interests you the most.</p>
+                                    <p class="mb-0">Explore the collection of articles about various topics. Simply choose the ones that interest you the most.</p>
                                 </div>
                             </div>
-
                             <img src="/images/topics/undraw_Remote_design_team_re_urdx.png" class="custom-block-image img-fluid" alt="picture">
                         </a>
                     </div>
                 </div>
 
-                <div class="col-lg-6 col-12">
+                <div v-show="showDiv" class="col-lg-6 col-12">
                     <div class="custom-block custom-block-overlay">
                         <div class="d-flex flex-column h-100">
                             <img src="/images/newspaper-2542330_1280.jpg" class="custom-block-image img-fluid" alt="newspaper_picture">
 
-                            <div class="custom-block-overlay-text d-flex container-fluid">
+                            <div class="custom-block-overlay-text d-flex flex-column justify-content-between h-100">
                                 <div>
                                     <h5 class="text-white mb-2">A space where diverse topics converge</h5>
 
                                     <p class="text-white">Explore a range of insightful articles spanning design, marketing, finance, music, coding, and more. Our carefully crafted content offers a journey into the realms of creativity, innovation, and knowledge. Choose your preferred topic, dive into captivating articles, and embark on a discovery of ideas that inspire and inform. Join us on this intellectual voyage, where every click opens a gateway to new insights and perspectives.</p>
+                                </div>
 
-                                    <div class="text-center">
-                                        <a href="#section_3" class="btn custom-btn mt-2 mt-lg-3">Learn More</a>
-                                    </div>
+                                <div class="text-center">
+                                    <a href="#section_3" class="btn custom-btn mt-2 mt-lg-3">Learn More</a>
                                 </div>
                             </div>
 
@@ -54,6 +52,7 @@
                         </div>
                     </div>
                 </div>
+
             </div>
 
             <div class="mt-3">
@@ -92,7 +91,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="tab-content" id="myTabContent">
-                        <div v-for="topic in filteredTopics" :key="topic.id" :class="{ 'show active': selectedTopic === topic }" class="tab-pane fade" role="tabpanel" :aria-labelledby="`${topic.slug}-tab`" tabindex="0">
+                        <div v-for="topic in filteredTopics" :key="topic.id" :class="{ 'show': selectedTopic === topic }" class="tab-pane fade" role="tabpanel" tabindex="0">
                             <div class="row pb-2">
                                 <div v-for="article in topic.articles.slice(0, 2)" :key="article.id" class="col-lg-6 col-md-6 col-12 mb-4 mb-lg-0">
                                     <div class="custom-block bg-white shadow-lg">
@@ -192,13 +191,14 @@ export default {
             topicStore,
             topics: topicsData.topics,
             selectedTopic: null,
+            showDiv: false
         }
     },
     components: {FaQ, ContactInfo, SelectTopicBar},
     computed: {
         filteredTopics() {
             this.topicStore.restoreState();
-            return this.topicStore.filteredTopics(this.topics);
+            return this.topicStore.filterTopics(this.topics);
         },
 
     },
@@ -212,14 +212,24 @@ export default {
     },
     created() {
         this.topicStore.restoreState();
-        if (this.topicStore.firstClick === true) {
+        if (this.topicStore.isEmpty()) {
             this.topicStore.fillSelectedTopics(this.topics);
         }
     },
     methods: {
         selectTopic(topic) {
             this.selectedTopic = topic;
+        },
+        checkWindowSize() {
+            this.showDiv = window.innerWidth >= 1000;
         }
+    },
+    mounted() {
+        this.checkWindowSize();
+        window.addEventListener("resize", this.checkWindowSize);
+    },
+    beforeUnmount() {
+        window.removeEventListener("resize", this.checkWindowSize);
     }
 }
 </script>

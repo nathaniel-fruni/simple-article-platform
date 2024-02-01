@@ -49,7 +49,7 @@
 
                 <div class="col-lg-3 col-md-4 col-12 mt-4 mt-lg-0 ms-auto">
 
-                    <p class="copyright-text mt-lg-5 mt-4">Copyright © 2024 Topic Listing Center. All rights reserved.
+                    <p class="copyright-text mt-lg-5 mt-4">Copyright © 2024 Nathaniel Fruni
                         <br><br>Design: <a rel="nofollow" href="https://templatemo.com" target="_blank">TemplateMo</a></p>
                 </div>
             </div>

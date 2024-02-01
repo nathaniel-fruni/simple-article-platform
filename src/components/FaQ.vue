@@ -26,11 +26,12 @@
                                 </button>
                             </h2>
 
-                            <div class="accordion-collapse" :style="{ height: faq.isOpen ? 'auto' : '0' }">
-                                <div v-if="faq.isOpen" class="accordion-body">
+                            <div class="accordion-collapse">
+                                <div class="accordion-body" v-show="faq.isOpen">
                                     {{ faq.answer }}
                                 </div>
                             </div>
+
                         </div>
                     </div>
                 </div>

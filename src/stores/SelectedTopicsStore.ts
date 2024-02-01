@@ -12,7 +12,7 @@ export const useSelectedTopicStore = defineStore('selectedTopic', {
         firstClick: true
     }),
     actions: {
-        filteredTopics(topics: Topic[]) {
+        filterTopics(topics: Topic[]) {
             return topics.filter(topic => this.$state.selectedTopics.includes(topic.name));
         },
         persistState() {

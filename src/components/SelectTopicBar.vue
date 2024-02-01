@@ -25,7 +25,7 @@ export default {
     },
     methods: {
         toggleTopic(topic) {
-            if (this.topicStore.isFull(this.topics) && this.topicStore.firstClick === true) {
+            if (this.topicStore.isFull(this.topics) && this.topicStore.firstClick ) {
                 this.topicStore.clearSelectedTopics();
                 this.topicStore.addSelectedTopic(topic);
                 this.topicStore.firstClick = false;
@@ -50,7 +50,6 @@ export default {
     }
 };
 </script>
-
 
 <style scoped>
 div{

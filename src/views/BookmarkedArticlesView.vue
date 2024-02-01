@@ -85,10 +85,8 @@ export default {
             }
         },
         adjustCurrentPage() {
-            const totalPages = Math.ceil(this.filteredArticles.length / this.itemsPerPage);
-
-            if (this.currentPage > totalPages) {
-                this.currentPage = totalPages || 1;
+            if (this.currentPage > this.totalPages) {
+                this.currentPage = this.totalPages || 1;
             }
         },
     },
