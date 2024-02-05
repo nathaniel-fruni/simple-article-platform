@@ -4,7 +4,7 @@ Welcome to the Simple Article Platform!
 
 For basic information and quick setup, refer to the [DEFAULT_README](DEFAULT_README.md) file.
 
-## Customization and Features
+## Features
 
 This README provides additional details about the project:
 
