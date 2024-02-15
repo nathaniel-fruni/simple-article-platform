@@ -11,7 +11,16 @@ This README provides additional details about the project:
 ### Project Structure
 
 - `src/`: Contains the source code for the project.
+  - `assets/`: Css styles.
+  - `components/`: Reusable components across the website.
+  - `router/`: Router related file.
+  - `stores/`: Pinia stores.
+  - `types/`: Interfaces.
+  - `views/`: Different pages.
 - `public/`: Static assets.
+- `App.vue`
+- `main.ts`
+- `topics.json`: Data source.
 
 ### Key Features
 
