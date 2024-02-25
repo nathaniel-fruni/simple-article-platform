@@ -41,7 +41,6 @@ const router = createRouter({
     }
   ],
   scrollBehavior(to, from, savedPosition) {
-    // Return desired position or a promise that resolves to a position
     if (to.hash) {
       return {
         el: to.hash,

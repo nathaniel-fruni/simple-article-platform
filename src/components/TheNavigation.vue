@@ -64,10 +64,10 @@ export default {
         },
     },
     methods: {
-        toggleMenu() {
-            this.isResponsive = !this.isResponsive;
-            this.showMenu = !this.showMenu;
-        },
+      toggleMenu() {
+        this.isResponsive = !this.isResponsive;
+        this.showMenu = window.innerWidth >= 1000;
+      },
         handleScroll() {
             this.isScrolled = window.scrollY > 0;
         },
