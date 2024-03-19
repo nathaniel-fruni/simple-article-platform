@@ -239,6 +239,10 @@ export default {
     display: none;
 }
 
+.nav-link {
+  color: #717275;
+}
+
 .nav-link.active{
     border-bottom-color: var(--primary-color);
     color: var(--primary-color);
