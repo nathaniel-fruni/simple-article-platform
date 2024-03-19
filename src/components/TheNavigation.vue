@@ -66,7 +66,9 @@ export default {
     methods: {
       toggleMenu() {
         this.isResponsive = !this.isResponsive;
-        this.showMenu = !this.showMenu;
+        if (window.innerWidth <= 1000) {
+          this.showMenu = !this.showMenu;
+        }
       },
         handleScroll() {
             this.isScrolled = window.scrollY > 0;
